@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import Head from "next/head";
 import {
   Container,
   Button,
@@ -12,6 +11,7 @@ import {
   Sidebar,
 } from "semantic-ui-react";
 import { useScreen } from "../context/ScreenContext";
+import DefaultLayout from "./DefaultLayout";
 
 type Pages = "Home" | "About" | "Login" | "Sign Up";
 
@@ -189,19 +189,9 @@ const ResponsiveContainer: React.FC<ResponsiveContainerProps> = ({
 
 const HomepageLayout: React.FC<HomepageLayoutProps> = ({ children, page }) => {
   return (
-    <div>
-      <Head>
-        <title>OctoBid | {page}</title>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <link
-          rel="stylesheet"
-          href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"
-        />
-      </Head>
-
+    <DefaultLayout page={page}>
       <ResponsiveContainer page={page}>{children}</ResponsiveContainer>
-    </div>
+    </DefaultLayout>
   );
 };
 

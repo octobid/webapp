@@ -5,18 +5,28 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "type-check": "tsc"
+    "type-check": "tsc",
+    "predeploy:staging": "cd staging",
+    "deploy:staging": "npx serverless",
+    "postdeploy:staging": "cd ..",
+    "predeploy:production": "cd production",
+    "deploy:production": "npx serverless",
+    "postdeploy:production": "cd .."
   },
   "dependencies": {
     "isomorphic-unfetch": "3.0.0",
+    "jsonwebtoken": "^8.5.1",
     "next": "latest",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "semantic-ui-react": "^0.88.2"
   },
   "devDependencies": {
+    "@types/jsonwebtoken": "^8.3.9",
     "@types/node": "^12.12.21",
     "@types/react": "^16.9.16",
     "@types/react-dom": "^16.9.4",
+    "serverless-next.js": "^1.10.0-alpha.2",
     "typescript": "3.7.3"
   },
   "license": "ISC"

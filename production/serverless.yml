@@ -1,0 +1,6 @@
+octobid-webapp:
+  component: serverless-next.js
+  inputs:
+    domain: ["www", "octobid.com"]
+    nextConfigDir: "../"
+    bucketName: "production-octobid-webapp"

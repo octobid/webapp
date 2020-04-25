@@ -5,6 +5,13 @@
 // import User from 'path/to/interfaces';
 
 export type User = {
-  id: number
+  id: string
   name: string
+  email: string
+}
+
+export type JwtTokenPayload = {
+  sub: string,
+  name: string,
+  email: string
 }

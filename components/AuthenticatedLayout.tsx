@@ -13,9 +13,9 @@ import {
 } from "semantic-ui-react";
 import { useScreen } from "../context/ScreenContext";
 
-type Pages = "Home" | "About" | "Login" | "Sign Up";
+type Pages = "Dashboard";
 
-type HomepageLayoutProps = {
+type AuthenticatedLayoutProps = {
   page: Pages;
 };
 
@@ -66,29 +66,14 @@ const DesktopContainer: React.FC<DesktopContainerProps> = ({
           >
             <Container>
               <Link href="/">
-                <Menu.Item as="a" active={page === "Home"}>
-                  Home
-                </Menu.Item>
-              </Link>
-              <Link href="/about">
-                <Menu.Item as="a" active={page === "About"}>
-                  About
+                <Menu.Item as="a" active={page === "Dashboard"}>
+                  Dashboard
                 </Menu.Item>
               </Link>
               <Menu.Item position="right">
-                <Link href="/login">
+                <Link href="/logout">
                   <Button as="a" inverted={!fixed}>
-                    Log in
-                  </Button>
-                </Link>
-                <Link href="/signup">
-                  <Button
-                    as="a"
-                    inverted={!fixed}
-                    primary={fixed}
-                    style={{ marginLeft: "0.5em" }}
-                  >
-                    Sign Up
+                    Log Out
                   </Button>
                 </Link>
               </Menu.Item>
@@ -127,22 +112,13 @@ const MobileContainer: React.FC<MobileContainerProps> = ({
         visible={sidebarOpened}
       >
         <Link href="/">
-          <Menu.Item as="a" active={page === "Home"}>
-            Home
+          <Menu.Item as="a" active={page === "Dashboard"}>
+            Dashboard
           </Menu.Item>
         </Link>
-        <Link href="/about">
-          <Menu.Item as="a" active={page === "About"}>
-            About
-          </Menu.Item>
+        <Link href="/logout">
+          <Menu.Item as="a">Log Out</Menu.Item>
         </Link>
-        <Link href="/login">
-          <Menu.Item as="a">Log in</Menu.Item>
-        </Link>
-        <Link href="/signup">
-          <Menu.Item as="a">Sign Up</Menu.Item>
-        </Link>
-        )}
       </Sidebar>
 
       <Sidebar.Pusher dimmed={sidebarOpened}>
@@ -187,7 +163,10 @@ const ResponsiveContainer: React.FC<ResponsiveContainerProps> = ({
   );
 };
 
-const HomepageLayout: React.FC<HomepageLayoutProps> = ({ children, page }) => {
+const AuthenticatedLayout: React.FC<AuthenticatedLayoutProps> = ({
+  children,
+  page,
+}) => {
   return (
     <div>
       <Head>
@@ -205,4 +184,4 @@ const HomepageLayout: React.FC<HomepageLayoutProps> = ({ children, page }) => {
   );
 };
 
-export default HomepageLayout;
+export default AuthenticatedLayout;

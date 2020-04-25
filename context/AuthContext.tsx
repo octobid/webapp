@@ -1,5 +1,5 @@
 import React, { useContext, createContext, useState, useEffect } from "react";
-import { fetchToken, getTokenFromLocalStorage } from "../actions/auth";
+import { fetchToken, getTokenFromLocalStorage, setTokenToLocalStorage } from "../actions/auth";
 
 interface AuthInterface {
   token: string;
@@ -28,11 +28,14 @@ const AuthProvider: React.FC = (props) => {
     setDoneCheckingAuth(true);
   }, []);
 
+  useEffect(() => {
+    setTokenToLocalStorage(token);
+  }, [token]);
+
   const login = async (username: string, password: string) => {
     try {
       const requestedToken = await fetchToken(username, password);
       setToken(requestedToken);
-      setDoneCheckingAuth(true);
     } catch (e) {
       setError(e)
     }

@@ -25,7 +25,7 @@ const IndexPage = () => {
           />
           <Header
             as="h2"
-            content="Connecting businesses efficiently"
+            content="Building businesses together"
             inverted
             style={{
               fontSize: isMobile ? "1.5em" : "1.7em",
